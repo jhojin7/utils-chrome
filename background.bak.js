@@ -40,3 +40,22 @@ chrome.commands.onCommand.addListener((command, tab)=>{
 
   }
 })
+
+
+let _PREFIX = false
+
+// implement prefix keybinding
+chrome.commands.onCommand.addListener((command, tab)=>{
+    if (command === "prefix"){
+        console.log("prefix", _PREFIX)
+    }
+})
+
+// chrome.input.ime.onKeyEvent.addListener((engineID, keyData, requestId)=>{
+//     console.log(engineID, keyData, requestId, _PREFIX)
+// })
+
+// window.addEventListner("keydown", (e)=>{
+//     console.log(e)
+// })
+// 

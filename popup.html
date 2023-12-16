@@ -1,0 +1,32 @@
+<!-- popup.html -->
+<!DOCTYPE html>
+<html>
+<body>
+  <p id="p">Hello, world!</p>
+</body>
+<script>
+  // localStorage.setItem("savedKeys",[])
+    const doc = document
+    let h1 = document.createElement("h1")
+    h1.textContent = "h1h1h1h1h1"
+    doc.appendChild(h1)
+    console.log(doc)
+    alert(h1)
+
+  const savedKeys = localStorage.getItem("savedKeys")
+  const p = document.querySelector("p")
+  document.addEventListener("keypress", (event) => {
+    if (!event.isTrusted) return
+    if (!event.code.includes("Digit") || event.shiftKey || event.altKey || event.ctrlKey) return
+    console.log(savedKeys, event)
+    p.innerHTML = `<code>key press: ${event.key}</code>`
+    if (event.key === "1") {
+      a = 1
+      console.log(a, savedKeys[a - 1])
+      chrome.tabs.update(savedKeys[a - 1].id, { active: true })
+    }
+  }
+  )
+</script>
+
+</html>
